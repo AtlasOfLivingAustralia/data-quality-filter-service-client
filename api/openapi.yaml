@@ -106,22 +106,22 @@ paths:
     get:
       operationId: getInverseCategoryFilter
       parameters:
-      - description: Profile name
+      - description: Quality Category Id
         in: query
-        name: profileName
+        name: qualityCategoryId
         schema:
-          type: string
+          type: integer
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
       summary: Get the full inverse filter string for a given quality qualityProfile
       tags:
       - QualityServiceRPC
-      x-accepts: application/json
+      x-accepts: text/plain
   /api/v1/quality/getEnabledQualityFilters:
     get:
       operationId: getEnabledQualityFilters
@@ -156,19 +156,20 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
       summary: Get the full filter string for a given quality qualityProfile
       tags:
       - QualityServiceRPC
-      x-accepts: application/json
+      x-accepts: text/plain
   /api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id}:
     get:
       operationId: filters/{id}
       parameters:
-      - description: The id for the quality profile or default for the default profile
+      - description: The id or short name for the quality profile or default for the
+          default profile
         in: path
         name: profileId
         required: true
@@ -208,7 +209,8 @@ paths:
     get:
       operationId: filters
       parameters:
-      - description: The id for the quality profile or default for the default profile
+      - description: The id or short name for the quality profile or default for the
+          default profile
         in: path
         name: profileId
         required: true
@@ -242,7 +244,8 @@ paths:
     get:
       operationId: profiles/{id}
       parameters:
-      - description: The id for the quality profile or default for the default profile
+      - description: The id or short name for the quality profile or default for the
+          default profile
         in: path
         name: id
         required: true
@@ -292,7 +295,8 @@ paths:
     get:
       operationId: categories/{id}
       parameters:
-      - description: The id for the quality profile or default for the default profile
+      - description: The id or short name for the quality profile or default for the
+          default profile
         in: path
         name: profileId
         required: true
@@ -326,7 +330,8 @@ paths:
     get:
       operationId: categories
       parameters:
-      - description: The id for the quality profile or default for the default profile
+      - description: The id or short name for the quality profile or default for the
+          default profile
         in: path
         name: profileId
         required: true

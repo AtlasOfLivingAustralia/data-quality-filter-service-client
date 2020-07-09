@@ -94,7 +94,7 @@ public class Example {
         defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        String id = "id_example"; // String | The id for the quality profile or default for the default profile
+        String id = "id_example"; // String | The id or short name for the quality profile or default for the default profile
         Integer max = 56; // Integer | Maximum results to return
         try {
             List<QualityProfile> result = apiInstance.profilesId(id, max);
@@ -115,7 +115,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id for the quality profile or default for the default profile |
+ **id** | **String**| The id or short name for the quality profile or default for the default profile |
  **max** | **Integer**| Maximum results to return | [optional]
 
 ### Return type

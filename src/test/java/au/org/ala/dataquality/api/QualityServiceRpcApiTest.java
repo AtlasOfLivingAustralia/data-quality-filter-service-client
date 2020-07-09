@@ -90,8 +90,8 @@ public class QualityServiceRpcApiTest {
      */
     @Test
     public void getInverseCategoryFilterTest() {
-        String profileName = null;
-        // String response = api.getInverseCategoryFilter(profileName);
+        Integer qualityCategoryId = null;
+        // String response = api.getInverseCategoryFilter(qualityCategoryId);
 
         // TODO: test validations
     }

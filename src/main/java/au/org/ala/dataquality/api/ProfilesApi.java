@@ -31,7 +31,7 @@ public interface ProfilesApi {
   /**
    * List all quality profiles
    * 
-   * @param id The id for the quality profile or default for the default profile (required)
+   * @param id The id or short name for the quality profile or default for the default profile (required)
    * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */

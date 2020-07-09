@@ -20,7 +20,7 @@ public interface FiltersApi {
   /**
    * List all quality filters
    * 
-   * @param profileId The id for the quality profile or default for the default profile (required)
+   * @param profileId The id or short name for the quality profile or default for the default profile (required)
    * @param categoryId The id for the quality category (required)
    * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityFilter&gt;&gt;
@@ -33,7 +33,7 @@ public interface FiltersApi {
   /**
    * List all quality profiles
    * 
-   * @param profileId The id for the quality profile or default for the default profile (required)
+   * @param profileId The id or short name for the quality profile or default for the default profile (required)
    * @param categoryId The id for the quality category (required)
    * @param id The id for the quality category (required)
    * @param max Maximum results to return (optional)

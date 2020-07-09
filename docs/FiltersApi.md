@@ -31,7 +31,7 @@ public class Example {
         defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        String profileId = "profileId_example"; // String | The id for the quality profile or default for the default profile
+        String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile
         String categoryId = "categoryId_example"; // String | The id for the quality category
         Integer max = 56; // Integer | Maximum results to return
         try {
@@ -53,7 +53,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **String**| The id for the quality profile or default for the default profile |
+ **profileId** | **String**| The id or short name for the quality profile or default for the default profile |
  **categoryId** | **String**| The id for the quality category |
  **max** | **Integer**| Maximum results to return | [optional]
 
@@ -98,7 +98,7 @@ public class Example {
         defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        String profileId = "profileId_example"; // String | The id for the quality profile or default for the default profile
+        String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile
         String categoryId = "categoryId_example"; // String | The id for the quality category
         Integer id = 56; // Integer | The id for the quality category
         Integer max = 56; // Integer | Maximum results to return
@@ -121,7 +121,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **String**| The id for the quality profile or default for the default profile |
+ **profileId** | **String**| The id or short name for the quality profile or default for the default profile |
  **categoryId** | **String**| The id for the quality category |
  **id** | **Integer**| The id for the quality category |
  **max** | **Integer**| Maximum results to return | [optional]

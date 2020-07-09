@@ -77,12 +77,12 @@ public interface QualityServiceRpcApi {
   /**
    * Get the full inverse filter string for a given quality qualityProfile
    * 
-   * @param profileName Profile name (optional)
+   * @param qualityCategoryId Quality Category Id (optional)
    * @return Call&lt;String&gt;
    */
   @GET("api/v1/quality/getInverseCategoryFilter")
   Call<String> getInverseCategoryFilter(
-    @retrofit2.http.Query("profileName") String profileName
+    @retrofit2.http.Query("qualityCategoryId") Integer qualityCategoryId
   );
 
   /**

@@ -21,7 +21,7 @@ public interface CategoriesApi {
   /**
    * List all quality categories
    * 
-   * @param profileId The id for the quality profile or default for the default profile (required)
+   * @param profileId The id or short name for the quality profile or default for the default profile (required)
    * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityCategory&gt;&gt;
    */
@@ -33,7 +33,7 @@ public interface CategoriesApi {
   /**
    * List all quality profiles
    * 
-   * @param profileId The id for the quality profile or default for the default profile (required)
+   * @param profileId The id or short name for the quality profile or default for the default profile (required)
    * @param id The id for the quality category (required)
    * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;

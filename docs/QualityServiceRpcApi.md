@@ -331,7 +331,7 @@ No authorization required
 
 ## getInverseCategoryFilter
 
-> String getInverseCategoryFilter(profileName)
+> String getInverseCategoryFilter(qualityCategoryId)
 
 Get the full inverse filter string for a given quality qualityProfile
 
@@ -351,9 +351,9 @@ public class Example {
         defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
 
         QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
-        String profileName = "profileName_example"; // String | Profile name
+        Integer qualityCategoryId = 56; // Integer | Quality Category Id
         try {
-            String result = apiInstance.getInverseCategoryFilter(profileName);
+            String result = apiInstance.getInverseCategoryFilter(qualityCategoryId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QualityServiceRpcApi#getInverseCategoryFilter");
@@ -371,7 +371,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileName** | **String**| Profile name | [optional]
+ **qualityCategoryId** | **Integer**| Quality Category Id | [optional]
 
 ### Return type
 
@@ -384,7 +384,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -447,7 +447,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
