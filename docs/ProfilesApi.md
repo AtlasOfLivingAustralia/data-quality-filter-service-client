@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## profiles
 
-> List&lt;QualityProfile&gt; profiles(max)
+> List&lt;QualityProfile&gt; profiles(max, offset, sort, desc, enabled, name, shortName)
 
 List all quality profiles
 
@@ -32,8 +32,14 @@ public class Example {
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
         Integer max = 56; // Integer | Maximum results to return
+        Integer offset = 56; // Integer | Offset results by
+        String sort = "sort_example"; // String | Property to sort results by
+        String desc = "desc_example"; // String | Direction to sort results by
+        Boolean enabled = true; // Boolean | Only return enabled profiles
+        String name = "name_example"; // String | Search for profiles by name
+        String shortName = "shortName_example"; // String | Search for profiles by short name
         try {
-            List<QualityProfile> result = apiInstance.profiles(max);
+            List<QualityProfile> result = apiInstance.profiles(max, offset, sort, desc, enabled, name, shortName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilesApi#profiles");
@@ -52,6 +58,12 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **max** | **Integer**| Maximum results to return | [optional]
+ **offset** | **Integer**| Offset results by | [optional]
+ **sort** | **String**| Property to sort results by | [optional]
+ **desc** | **String**| Direction to sort results by | [optional]
+ **enabled** | **Boolean**| Only return enabled profiles | [optional]
+ **name** | **String**| Search for profiles by name | [optional]
+ **shortName** | **String**| Search for profiles by short name | [optional]
 
 ### Return type
 

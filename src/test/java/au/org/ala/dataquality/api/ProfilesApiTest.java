@@ -30,7 +30,13 @@ public class ProfilesApiTest {
     @Test
     public void profilesTest() {
         Integer max = null;
-        // List<QualityProfile> response = api.profiles(max);
+        Integer offset = null;
+        String sort = null;
+        String desc = null;
+        Boolean enabled = null;
+        String name = null;
+        String shortName = null;
+        // List<QualityProfile> response = api.profiles(max, offset, sort, desc, enabled, name, shortName);
 
         // TODO: test validations
     }
