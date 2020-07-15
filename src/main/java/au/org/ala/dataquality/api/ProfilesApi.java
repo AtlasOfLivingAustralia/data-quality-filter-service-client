@@ -35,15 +35,14 @@ public interface ProfilesApi {
   );
 
   /**
-   * List all quality profiles
+   * Retrieve a single quality profile
    * 
    * @param id The id or short name for the quality profile or default for the default profile (required)
-   * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */
   @GET("api/v1/profiles/{id}")
   Call<List<QualityProfile>> profilesId(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Query("max") Integer max
+    @retrofit2.http.Path("id") String id
   );
 
 }

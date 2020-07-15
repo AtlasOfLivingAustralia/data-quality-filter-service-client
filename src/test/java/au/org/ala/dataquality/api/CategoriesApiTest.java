@@ -37,7 +37,7 @@ public class CategoriesApiTest {
         // TODO: test validations
     }
     /**
-     * List all quality profiles
+     * Retrieve a single quality category
      *
      * 
      */
@@ -45,8 +45,7 @@ public class CategoriesApiTest {
     public void categoriesIdTest() {
         String profileId = null;
         Integer id = null;
-        Integer max = null;
-        // List<QualityProfile> response = api.categoriesId(profileId, id, max);
+        // List<QualityProfile> response = api.categoriesId(profileId, id);
 
         // TODO: test validations
     }

@@ -5,7 +5,7 @@ All URIs are relative to *https://devt.ala.org.au/dataquality-filter*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**categories**](CategoriesApi.md#categories) | **GET** api/v1/profiles/{profileId}/categories | List all quality categories
-[**categoriesId**](CategoriesApi.md#categoriesId) | **GET** api/v1/profiles/{profileId}/categories/{id} | List all quality profiles
+[**categoriesId**](CategoriesApi.md#categoriesId) | **GET** api/v1/profiles/{profileId}/categories/{id} | Retrieve a single quality category
 
 
 
@@ -76,9 +76,9 @@ No authorization required
 
 ## categoriesId
 
-> List&lt;QualityProfile&gt; categoriesId(profileId, id, max)
+> List&lt;QualityProfile&gt; categoriesId(profileId, id)
 
-List all quality profiles
+Retrieve a single quality category
 
 ### Example
 
@@ -98,9 +98,8 @@ public class Example {
         CategoriesApi apiInstance = new CategoriesApi(defaultClient);
         String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile
         Integer id = 56; // Integer | The id for the quality category
-        Integer max = 56; // Integer | Maximum results to return
         try {
-            List<QualityProfile> result = apiInstance.categoriesId(profileId, id, max);
+            List<QualityProfile> result = apiInstance.categoriesId(profileId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CategoriesApi#categoriesId");
@@ -120,7 +119,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileId** | **String**| The id or short name for the quality profile or default for the default profile |
  **id** | **Integer**| The id for the quality category |
- **max** | **Integer**| Maximum results to return | [optional]
 
 ### Return type
 

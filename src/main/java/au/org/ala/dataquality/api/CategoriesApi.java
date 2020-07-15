@@ -31,16 +31,15 @@ public interface CategoriesApi {
   );
 
   /**
-   * List all quality profiles
+   * Retrieve a single quality category
    * 
    * @param profileId The id or short name for the quality profile or default for the default profile (required)
    * @param id The id for the quality category (required)
-   * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */
   @GET("api/v1/profiles/{profileId}/categories/{id}")
   Call<List<QualityProfile>> categoriesId(
-    @retrofit2.http.Path("profileId") String profileId, @retrofit2.http.Path("id") Integer id, @retrofit2.http.Query("max") Integer max
+    @retrofit2.http.Path("profileId") String profileId, @retrofit2.http.Path("id") Integer id
   );
 
 }

@@ -41,15 +41,14 @@ public class ProfilesApiTest {
         // TODO: test validations
     }
     /**
-     * List all quality profiles
+     * Retrieve a single quality profile
      *
      * 
      */
     @Test
     public void profilesIdTest() {
         String id = null;
-        Integer max = null;
-        // List<QualityProfile> response = api.profilesId(id, max);
+        // List<QualityProfile> response = api.profilesId(id);
 
         // TODO: test validations
     }

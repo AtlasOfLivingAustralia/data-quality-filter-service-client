@@ -14,82 +14,6 @@ info:
 servers:
 - url: https://devt.ala.org.au/dataquality-filter/
 paths:
-  /api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id}:
-    get:
-      operationId: filters/{id}
-      parameters:
-      - description: The id or short name for the quality profile or default for the
-          default profile
-        in: path
-        name: profileId
-        required: true
-        schema:
-          type: string
-      - description: The id for the quality category
-        in: path
-        name: categoryId
-        required: true
-        schema:
-          type: string
-      - description: The id for the quality category
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-      - description: Maximum results to return
-        in: query
-        name: max
-        schema:
-          type: integer
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/QualityFilter'
-                type: array
-          description: OK
-      summary: List all quality profiles
-      tags:
-      - filters
-      x-accepts: application/json
-  /api/v1/profiles/{profileId}/categories/{categoryId}/filters:
-    get:
-      operationId: filters
-      parameters:
-      - description: The id or short name for the quality profile or default for the
-          default profile
-        in: path
-        name: profileId
-        required: true
-        schema:
-          type: string
-      - description: The id for the quality category
-        in: path
-        name: categoryId
-        required: true
-        schema:
-          type: string
-      - description: Maximum results to return
-        in: query
-        name: max
-        schema:
-          type: integer
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/QualityFilter'
-                type: array
-          description: OK
-      summary: List all quality filters
-      tags:
-      - filters
-      x-accepts: application/json
   /api/v1/quality/getGroupedEnabledFilters:
     get:
       operationId: getGroupedEnabledFilters
@@ -240,14 +164,56 @@ paths:
       tags:
       - QualityServiceRPC
       x-accepts: text/plain
-  /api/v1/profiles/{id}:
+  /api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id}:
     get:
-      operationId: profiles/{id}
+      operationId: filters/{id}
       parameters:
       - description: The id or short name for the quality profile or default for the
           default profile
         in: path
+        name: profileId
+        required: true
+        schema:
+          type: string
+      - description: The id for the quality category
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          type: string
+      - description: The id for the quality category
+        in: path
         name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/QualityFilter'
+                type: array
+          description: OK
+      summary: Retrieve a single quality filter
+      tags:
+      - filters
+      x-accepts: application/json
+  /api/v1/profiles/{profileId}/categories/{categoryId}/filters:
+    get:
+      operationId: filters
+      parameters:
+      - description: The id or short name for the quality profile or default for the
+          default profile
+        in: path
+        name: profileId
+        required: true
+        schema:
+          type: string
+      - description: The id for the quality category
+        in: path
+        name: categoryId
         required: true
         schema:
           type: string
@@ -262,10 +228,34 @@ paths:
             application/json:
               schema:
                 items:
+                  $ref: '#/components/schemas/QualityFilter'
+                type: array
+          description: OK
+      summary: List all quality filters
+      tags:
+      - filters
+      x-accepts: application/json
+  /api/v1/profiles/{id}:
+    get:
+      operationId: profiles/{id}
+      parameters:
+      - description: The id or short name for the quality profile or default for the
+          default profile
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
                   $ref: '#/components/schemas/QualityProfile'
                 type: array
           description: OK
-      summary: List all quality profiles
+      summary: Retrieve a single quality profile
       tags:
       - profiles
       x-accepts: application/json
@@ -338,11 +328,6 @@ paths:
         required: true
         schema:
           type: integer
-      - description: Maximum results to return
-        in: query
-        name: max
-        schema:
-          type: integer
       responses:
         "200":
           content:
@@ -352,7 +337,7 @@ paths:
                   $ref: '#/components/schemas/QualityProfile'
                 type: array
           description: OK
-      summary: List all quality profiles
+      summary: Retrieve a single quality category
       tags:
       - categories
       x-accepts: application/json
@@ -389,23 +374,21 @@ components:
   schemas:
     QualityCategory:
       example:
-        qualityProfile:
+        qualityFilters:
+        - filter: filter
+          qualityCategoryId: '{}'
           lastUpdated: 2000-01-23T04:56:07.000+00:00
-          isDefault: true
           dateCreated: 2000-01-23T04:56:07.000+00:00
-          contactEmail: contactEmail
-          contactName: contactName
-          name: name
           description: description
           id: 1
-          categories:
-          - null
-          - null
-          shortName: shortName
           enabled: true
-        qualityFilters:
-        - null
-        - null
+        - filter: filter
+          qualityCategoryId: '{}'
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          dateCreated: 2000-01-23T04:56:07.000+00:00
+          description: description
+          id: 1
+          enabled: true
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         dateCreated: 2000-01-23T04:56:07.000+00:00
         qualityProfileId: '{}'
@@ -449,34 +432,8 @@ components:
         qualityCategoryId: '{}'
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         dateCreated: 2000-01-23T04:56:07.000+00:00
-        qualityCategory:
-          qualityProfile:
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            isDefault: true
-            dateCreated: 2000-01-23T04:56:07.000+00:00
-            contactEmail: contactEmail
-            contactName: contactName
-            name: name
-            description: description
-            id: 1
-            categories:
-            - null
-            - null
-            shortName: shortName
-            enabled: true
-          qualityFilters:
-          - null
-          - null
-          lastUpdated: 2000-01-23T04:56:07.000+00:00
-          dateCreated: 2000-01-23T04:56:07.000+00:00
-          qualityProfileId: '{}'
-          name: name
-          description: description
-          id: 6
-          label: label
-          enabled: true
         description: description
-        id: 0
+        id: 1
         enabled: true
       properties:
         id:
@@ -509,10 +466,54 @@ components:
         contactName: contactName
         name: name
         description: description
-        id: 1
+        id: 0
         categories:
-        - null
-        - null
+        - qualityFilters:
+          - filter: filter
+            qualityCategoryId: '{}'
+            lastUpdated: 2000-01-23T04:56:07.000+00:00
+            dateCreated: 2000-01-23T04:56:07.000+00:00
+            description: description
+            id: 1
+            enabled: true
+          - filter: filter
+            qualityCategoryId: '{}'
+            lastUpdated: 2000-01-23T04:56:07.000+00:00
+            dateCreated: 2000-01-23T04:56:07.000+00:00
+            description: description
+            id: 1
+            enabled: true
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          dateCreated: 2000-01-23T04:56:07.000+00:00
+          qualityProfileId: '{}'
+          name: name
+          description: description
+          id: 6
+          label: label
+          enabled: true
+        - qualityFilters:
+          - filter: filter
+            qualityCategoryId: '{}'
+            lastUpdated: 2000-01-23T04:56:07.000+00:00
+            dateCreated: 2000-01-23T04:56:07.000+00:00
+            description: description
+            id: 1
+            enabled: true
+          - filter: filter
+            qualityCategoryId: '{}'
+            lastUpdated: 2000-01-23T04:56:07.000+00:00
+            dateCreated: 2000-01-23T04:56:07.000+00:00
+            description: description
+            id: 1
+            enabled: true
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          dateCreated: 2000-01-23T04:56:07.000+00:00
+          qualityProfileId: '{}'
+          name: name
+          description: description
+          id: 6
+          label: label
+          enabled: true
         shortName: shortName
         enabled: true
       properties:

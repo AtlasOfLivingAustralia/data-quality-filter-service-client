@@ -5,7 +5,7 @@ All URIs are relative to *https://devt.ala.org.au/dataquality-filter*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**filters**](FiltersApi.md#filters) | **GET** api/v1/profiles/{profileId}/categories/{categoryId}/filters | List all quality filters
-[**filtersId**](FiltersApi.md#filtersId) | **GET** api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id} | List all quality profiles
+[**filtersId**](FiltersApi.md#filtersId) | **GET** api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id} | Retrieve a single quality filter
 
 
 
@@ -78,9 +78,9 @@ No authorization required
 
 ## filtersId
 
-> List&lt;QualityFilter&gt; filtersId(profileId, categoryId, id, max)
+> List&lt;QualityFilter&gt; filtersId(profileId, categoryId, id)
 
-List all quality profiles
+Retrieve a single quality filter
 
 ### Example
 
@@ -101,9 +101,8 @@ public class Example {
         String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile
         String categoryId = "categoryId_example"; // String | The id for the quality category
         Integer id = 56; // Integer | The id for the quality category
-        Integer max = 56; // Integer | Maximum results to return
         try {
-            List<QualityFilter> result = apiInstance.filtersId(profileId, categoryId, id, max);
+            List<QualityFilter> result = apiInstance.filtersId(profileId, categoryId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FiltersApi#filtersId");
@@ -124,7 +123,6 @@ Name | Type | Description  | Notes
  **profileId** | **String**| The id or short name for the quality profile or default for the default profile |
  **categoryId** | **String**| The id for the quality category |
  **id** | **Integer**| The id for the quality category |
- **max** | **Integer**| Maximum results to return | [optional]
 
 ### Return type
 

@@ -37,7 +37,7 @@ public class FiltersApiTest {
         // TODO: test validations
     }
     /**
-     * List all quality profiles
+     * Retrieve a single quality filter
      *
      * 
      */
@@ -46,8 +46,7 @@ public class FiltersApiTest {
         String profileId = null;
         String categoryId = null;
         Integer id = null;
-        Integer max = null;
-        // List<QualityFilter> response = api.filtersId(profileId, categoryId, id, max);
+        // List<QualityFilter> response = api.filtersId(profileId, categoryId, id);
 
         // TODO: test validations
     }
