@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **contactEmail** | **String** |  |  [optional]
 **enabled** | **Boolean** |  |  [optional]
 **isDefault** | **Boolean** |  |  [optional]
+**displayOrder** | **Long** |  |  [optional]
 **dateCreated** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **lastUpdated** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **categories** | [**List&lt;QualityCategory&gt;**](QualityCategory.md) |  |  [optional]

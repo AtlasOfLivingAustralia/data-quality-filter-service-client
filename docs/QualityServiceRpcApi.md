@@ -6,10 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activeProfile**](QualityServiceRpcApi.md#activeProfile) | **GET** api/v1/quality/activeProfile | Retrieve the filter qualityProfile for a given qualityProfile name
 [**findAllEnabledCategories**](QualityServiceRpcApi.md#findAllEnabledCategories) | **GET** api/v1/quality/findAllEnabledCategories | Find All Enabled Categories
+[**getAllInverseCategoryFiltersForProfile**](QualityServiceRpcApi.md#getAllInverseCategoryFiltersForProfile) | **GET** api/v1/quality/getAllInverseCategoryFiltersForProfile | Get all the inverse filter strings for a given quality Profile
 [**getEnabledFiltersByLabel**](QualityServiceRpcApi.md#getEnabledFiltersByLabel) | **GET** api/v1/quality/getEnabledFiltersByLabel | Get enabled filters, grouped by category label
 [**getEnabledQualityFilters**](QualityServiceRpcApi.md#getEnabledQualityFilters) | **GET** api/v1/quality/getEnabledQualityFilters | Get Enabled Quality Filters
 [**getGroupedEnabledFilters**](QualityServiceRpcApi.md#getGroupedEnabledFilters) | **GET** api/v1/quality/getGroupedEnabledFilters | Get Grouped Enabled Filters
-[**getInverseCategoryFilter**](QualityServiceRpcApi.md#getInverseCategoryFilter) | **GET** api/v1/quality/getInverseCategoryFilter | Get the full inverse filter string for a given quality qualityProfile
+[**getInverseCategoryFilter**](QualityServiceRpcApi.md#getInverseCategoryFilter) | **GET** api/v1/quality/getInverseCategoryFilter | Get the full inverse filter string for a given quality category
 [**getJoinedQualityFilter**](QualityServiceRpcApi.md#getJoinedQualityFilter) | **GET** api/v1/quality/getJoinedQualityFilter | Get the full filter string for a given quality qualityProfile
 
 
@@ -124,6 +125,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;QualityCategory&gt;**](QualityCategory.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+
+## getAllInverseCategoryFiltersForProfile
+
+> Map&lt;String, String&gt; getAllInverseCategoryFiltersForProfile(qualityProfileId)
+
+Get all the inverse filter strings for a given quality Profile
+
+### Example
+
+```java
+// Import classes:
+import au.org.ala.dataquality.client.ApiClient;
+import au.org.ala.dataquality.client.ApiException;
+import au.org.ala.dataquality.client.Configuration;
+import au.org.ala.dataquality.client.models.*;
+import au.org.ala.dataquality.api.QualityServiceRpcApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+
+        QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
+        Integer qualityProfileId = 56; // Integer | Quality Profile Id
+        try {
+            Map<String, String> result = apiInstance.getAllInverseCategoryFiltersForProfile(qualityProfileId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling QualityServiceRpcApi#getAllInverseCategoryFiltersForProfile");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **qualityProfileId** | **Integer**| Quality Profile Id | [optional]
+
+### Return type
+
+**Map&lt;String, String&gt;**
 
 ### Authorization
 
@@ -333,7 +397,7 @@ No authorization required
 
 > String getInverseCategoryFilter(qualityCategoryId)
 
-Get the full inverse filter string for a given quality qualityProfile
+Get the full inverse filter string for a given quality category
 
 ### Example
 

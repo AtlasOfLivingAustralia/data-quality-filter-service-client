@@ -47,6 +47,10 @@ public class QualityFilter {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private String filter;
 
+  public static final String SERIALIZED_NAME_DISPLAY_ORDER = "displayOrder";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ORDER)
+  private Long displayOrder;
+
   public static final String SERIALIZED_NAME_DATE_CREATED = "dateCreated";
   @SerializedName(SERIALIZED_NAME_DATE_CREATED)
   private OffsetDateTime dateCreated;
@@ -156,6 +160,29 @@ public class QualityFilter {
   }
 
 
+  public QualityFilter displayOrder(Long displayOrder) {
+    
+    this.displayOrder = displayOrder;
+    return this;
+  }
+
+   /**
+   * Get displayOrder
+   * @return displayOrder
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getDisplayOrder() {
+    return displayOrder;
+  }
+
+
+  public void setDisplayOrder(Long displayOrder) {
+    this.displayOrder = displayOrder;
+  }
+
+
   public QualityFilter dateCreated(OffsetDateTime dateCreated) {
     
     this.dateCreated = dateCreated;
@@ -261,6 +288,7 @@ public class QualityFilter {
         Objects.equals(this.enabled, qualityFilter.enabled) &&
         Objects.equals(this.description, qualityFilter.description) &&
         Objects.equals(this.filter, qualityFilter.filter) &&
+        Objects.equals(this.displayOrder, qualityFilter.displayOrder) &&
         Objects.equals(this.dateCreated, qualityFilter.dateCreated) &&
         Objects.equals(this.lastUpdated, qualityFilter.lastUpdated) &&
         Objects.equals(this.qualityCategory, qualityFilter.qualityCategory) &&
@@ -269,7 +297,7 @@ public class QualityFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, enabled, description, filter, dateCreated, lastUpdated, qualityCategory, qualityCategoryId);
+    return Objects.hash(id, enabled, description, filter, displayOrder, dateCreated, lastUpdated, qualityCategory, qualityCategoryId);
   }
 
 
@@ -281,6 +309,7 @@ public class QualityFilter {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    displayOrder: ").append(toIndentedString(displayOrder)).append("\n");
     sb.append("    dateCreated: ").append(toIndentedString(dateCreated)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    qualityCategory: ").append(toIndentedString(qualityCategory)).append("\n");

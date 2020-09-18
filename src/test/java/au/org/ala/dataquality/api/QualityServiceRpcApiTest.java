@@ -48,6 +48,18 @@ public class QualityServiceRpcApiTest {
         // TODO: test validations
     }
     /**
+     * Get all the inverse filter strings for a given quality Profile
+     *
+     * 
+     */
+    @Test
+    public void getAllInverseCategoryFiltersForProfileTest() {
+        Integer qualityProfileId = null;
+        // Map<String, String> response = api.getAllInverseCategoryFiltersForProfile(qualityProfileId);
+
+        // TODO: test validations
+    }
+    /**
      * Get enabled filters, grouped by category label
      *
      * 
@@ -84,7 +96,7 @@ public class QualityServiceRpcApiTest {
         // TODO: test validations
     }
     /**
-     * Get the full inverse filter string for a given quality qualityProfile
+     * Get the full inverse filter string for a given quality category
      *
      * 
      */

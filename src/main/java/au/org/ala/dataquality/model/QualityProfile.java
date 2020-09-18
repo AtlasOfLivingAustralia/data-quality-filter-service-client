@@ -65,6 +65,10 @@ public class QualityProfile {
   @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
   private Boolean isDefault;
 
+  public static final String SERIALIZED_NAME_DISPLAY_ORDER = "displayOrder";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_ORDER)
+  private Long displayOrder;
+
   public static final String SERIALIZED_NAME_DATE_CREATED = "dateCreated";
   @SerializedName(SERIALIZED_NAME_DATE_CREATED)
   private OffsetDateTime dateCreated;
@@ -262,6 +266,29 @@ public class QualityProfile {
   }
 
 
+  public QualityProfile displayOrder(Long displayOrder) {
+    
+    this.displayOrder = displayOrder;
+    return this;
+  }
+
+   /**
+   * Get displayOrder
+   * @return displayOrder
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getDisplayOrder() {
+    return displayOrder;
+  }
+
+
+  public void setDisplayOrder(Long displayOrder) {
+    this.displayOrder = displayOrder;
+  }
+
+
   public QualityProfile dateCreated(OffsetDateTime dateCreated) {
     
     this.dateCreated = dateCreated;
@@ -356,6 +383,7 @@ public class QualityProfile {
         Objects.equals(this.contactEmail, qualityProfile.contactEmail) &&
         Objects.equals(this.enabled, qualityProfile.enabled) &&
         Objects.equals(this.isDefault, qualityProfile.isDefault) &&
+        Objects.equals(this.displayOrder, qualityProfile.displayOrder) &&
         Objects.equals(this.dateCreated, qualityProfile.dateCreated) &&
         Objects.equals(this.lastUpdated, qualityProfile.lastUpdated) &&
         Objects.equals(this.categories, qualityProfile.categories);
@@ -363,7 +391,7 @@ public class QualityProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, shortName, description, contactName, contactEmail, enabled, isDefault, dateCreated, lastUpdated, categories);
+    return Objects.hash(id, name, shortName, description, contactName, contactEmail, enabled, isDefault, displayOrder, dateCreated, lastUpdated, categories);
   }
 
 
@@ -379,6 +407,7 @@ public class QualityProfile {
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    displayOrder: ").append(toIndentedString(displayOrder)).append("\n");
     sb.append("    dateCreated: ").append(toIndentedString(dateCreated)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");

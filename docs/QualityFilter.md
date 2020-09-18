@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **enabled** | **Boolean** |  |  [optional]
 **description** | **String** |  |  [optional]
 **filter** | **String** |  |  [optional]
+**displayOrder** | **Long** |  |  [optional]
 **dateCreated** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **lastUpdated** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **qualityCategory** | [**QualityCategory**](QualityCategory.md) |  |  [optional]

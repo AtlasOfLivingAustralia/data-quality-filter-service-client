@@ -14,6 +14,28 @@ info:
 servers:
 - url: https://devt.ala.org.au/dataquality-filter/
 paths:
+  /api/v1/quality/getAllInverseCategoryFiltersForProfile:
+    get:
+      operationId: getAllInverseCategoryFiltersForProfile
+      parameters:
+      - description: Quality Profile Id
+        in: query
+        name: qualityProfileId
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+          description: OK
+      summary: Get all the inverse filter strings for a given quality Profile
+      tags:
+      - QualityServiceRPC
+      x-accepts: application/json
   /api/v1/quality/getGroupedEnabledFilters:
     get:
       operationId: getGroupedEnabledFilters
@@ -118,7 +140,7 @@ paths:
               schema:
                 type: string
           description: OK
-      summary: Get the full inverse filter string for a given quality qualityProfile
+      summary: Get the full inverse filter string for a given quality category
       tags:
       - QualityServiceRPC
       x-accepts: text/plain
@@ -379,22 +401,25 @@ components:
           qualityCategoryId: '{}'
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           dateCreated: 2000-01-23T04:56:07.000+00:00
+          displayOrder: 2
           description: description
-          id: 1
+          id: 5
           enabled: true
         - filter: filter
           qualityCategoryId: '{}'
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           dateCreated: 2000-01-23T04:56:07.000+00:00
+          displayOrder: 2
           description: description
-          id: 1
+          id: 5
           enabled: true
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         dateCreated: 2000-01-23T04:56:07.000+00:00
         qualityProfileId: '{}'
         name: name
+        displayOrder: 5
         description: description
-        id: 6
+        id: 1
         label: label
         enabled: true
       properties:
@@ -409,6 +434,9 @@ components:
           type: string
         description:
           type: string
+        displayOrder:
+          format: int64
+          type: integer
         dateCreated:
           format: date-time
           type: string
@@ -432,8 +460,9 @@ components:
         qualityCategoryId: '{}'
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         dateCreated: 2000-01-23T04:56:07.000+00:00
+        displayOrder: 2
         description: description
-        id: 1
+        id: 5
         enabled: true
       properties:
         id:
@@ -445,6 +474,9 @@ components:
           type: string
         filter:
           type: string
+        displayOrder:
+          format: int64
+          type: integer
         dateCreated:
           format: date-time
           type: string
@@ -465,6 +497,7 @@ components:
         contactEmail: contactEmail
         contactName: contactName
         name: name
+        displayOrder: 6
         description: description
         id: 0
         categories:
@@ -473,22 +506,25 @@ components:
             qualityCategoryId: '{}'
             lastUpdated: 2000-01-23T04:56:07.000+00:00
             dateCreated: 2000-01-23T04:56:07.000+00:00
+            displayOrder: 2
             description: description
-            id: 1
+            id: 5
             enabled: true
           - filter: filter
             qualityCategoryId: '{}'
             lastUpdated: 2000-01-23T04:56:07.000+00:00
             dateCreated: 2000-01-23T04:56:07.000+00:00
+            displayOrder: 2
             description: description
-            id: 1
+            id: 5
             enabled: true
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           dateCreated: 2000-01-23T04:56:07.000+00:00
           qualityProfileId: '{}'
           name: name
+          displayOrder: 5
           description: description
-          id: 6
+          id: 1
           label: label
           enabled: true
         - qualityFilters:
@@ -496,22 +532,25 @@ components:
             qualityCategoryId: '{}'
             lastUpdated: 2000-01-23T04:56:07.000+00:00
             dateCreated: 2000-01-23T04:56:07.000+00:00
+            displayOrder: 2
             description: description
-            id: 1
+            id: 5
             enabled: true
           - filter: filter
             qualityCategoryId: '{}'
             lastUpdated: 2000-01-23T04:56:07.000+00:00
             dateCreated: 2000-01-23T04:56:07.000+00:00
+            displayOrder: 2
             description: description
-            id: 1
+            id: 5
             enabled: true
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           dateCreated: 2000-01-23T04:56:07.000+00:00
           qualityProfileId: '{}'
           name: name
+          displayOrder: 5
           description: description
-          id: 6
+          id: 1
           label: label
           enabled: true
         shortName: shortName
@@ -534,6 +573,9 @@ components:
           type: boolean
         isDefault:
           type: boolean
+        displayOrder:
+          format: int64
+          type: integer
         dateCreated:
           format: date-time
           type: string

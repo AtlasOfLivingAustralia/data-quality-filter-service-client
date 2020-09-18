@@ -42,6 +42,17 @@ public interface QualityServiceRpcApi {
   );
 
   /**
+   * Get all the inverse filter strings for a given quality Profile
+   * 
+   * @param qualityProfileId Quality Profile Id (optional)
+   * @return Call&lt;Map&lt;String, String&gt;&gt;
+   */
+  @GET("api/v1/quality/getAllInverseCategoryFiltersForProfile")
+  Call<Map<String, String>> getAllInverseCategoryFiltersForProfile(
+    @retrofit2.http.Query("qualityProfileId") Integer qualityProfileId
+  );
+
+  /**
    * Get enabled filters, grouped by category label
    * 
    * @param profileName Profile name (optional)
@@ -75,7 +86,7 @@ public interface QualityServiceRpcApi {
   );
 
   /**
-   * Get the full inverse filter string for a given quality qualityProfile
+   * Get the full inverse filter string for a given quality category
    * 
    * @param qualityCategoryId Quality Category Id (optional)
    * @return Call&lt;String&gt;

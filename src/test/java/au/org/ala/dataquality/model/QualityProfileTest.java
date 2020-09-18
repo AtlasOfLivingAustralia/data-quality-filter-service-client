@@ -109,6 +109,14 @@ public class QualityProfileTest {
     }
 
     /**
+     * Test the property 'displayOrder'
+     */
+    @Test
+    public void displayOrderTest() {
+        // TODO: test displayOrder
+    }
+
+    /**
      * Test the property 'dateCreated'
      */
     @Test
