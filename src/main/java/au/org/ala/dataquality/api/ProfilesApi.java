@@ -29,7 +29,7 @@ public interface ProfilesApi {
    * @param shortName Search for profiles by short name (optional)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */
-  @GET("api/v1/profiles")
+  @GET("api/v1/dataprofiles")
   Call<List<QualityProfile>> profiles(
     @retrofit2.http.Query("max") Integer max, @retrofit2.http.Query("offset") Integer offset, @retrofit2.http.Query("sort") String sort, @retrofit2.http.Query("desc") String desc, @retrofit2.http.Query("enabled") Boolean enabled, @retrofit2.http.Query("name") String name, @retrofit2.http.Query("shortName") String shortName
   );
@@ -40,7 +40,7 @@ public interface ProfilesApi {
    * @param id The id or short name for the quality profile or default for the default profile (required)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */
-  @GET("api/v1/profiles/{id}")
+  @GET("api/v1/dataprofiles/{id}")
   Call<List<QualityProfile>> profilesId(
     @retrofit2.http.Path("id") String id
   );

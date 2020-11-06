@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "au.org.ala",
     name := "data-quality-filter-service-client",
-    version := "1.0.0-SNAPSHOT",
+    version := "1.0.1-SNAPSHOT",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

@@ -10,7 +10,7 @@ info:
     url: https://www.mozilla.org/en-US/MPL/
   termsOfService: https://www.ala.org.au/terms-of-use
   title: Data Quality Services API
-  version: 1.0.0-SNAPSHOT
+  version: 1.0.1-SNAPSHOT
 servers:
 - url: https://devt.ala.org.au/dataquality-filter/
 paths:
@@ -186,7 +186,7 @@ paths:
       tags:
       - QualityServiceRPC
       x-accepts: text/plain
-  /api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id}:
+  /api/v1/dataprofiles/{profileId}/categories/{categoryId}/filters/{id}:
     get:
       operationId: filters/{id}
       parameters:
@@ -222,7 +222,7 @@ paths:
       tags:
       - filters
       x-accepts: application/json
-  /api/v1/profiles/{profileId}/categories/{categoryId}/filters:
+  /api/v1/dataprofiles/{profileId}/categories/{categoryId}/filters:
     get:
       operationId: filters
       parameters:
@@ -257,7 +257,7 @@ paths:
       tags:
       - filters
       x-accepts: application/json
-  /api/v1/profiles/{id}:
+  /api/v1/dataprofiles/{id}:
     get:
       operationId: profiles/{id}
       parameters:
@@ -281,7 +281,7 @@ paths:
       tags:
       - profiles
       x-accepts: application/json
-  /api/v1/profiles:
+  /api/v1/dataprofiles:
     get:
       operationId: profiles
       parameters:
@@ -333,7 +333,7 @@ paths:
       tags:
       - profiles
       x-accepts: application/json
-  /api/v1/profiles/{profileId}/categories/{id}:
+  /api/v1/dataprofiles/{profileId}/categories/{id}:
     get:
       operationId: categories/{id}
       parameters:
@@ -363,7 +363,7 @@ paths:
       tags:
       - categories
       x-accepts: application/json
-  /api/v1/profiles/{profileId}/categories:
+  /api/v1/dataprofiles/{profileId}/categories:
     get:
       operationId: categories
       parameters:
