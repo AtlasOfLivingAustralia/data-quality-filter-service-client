@@ -5,7 +5,7 @@
     <artifactId>data-quality-filter-service-client</artifactId>
     <packaging>jar</packaging>
     <name>data-quality-filter-service-client</name>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>Client for the Data Quality Filters API</description>
     <scm>
