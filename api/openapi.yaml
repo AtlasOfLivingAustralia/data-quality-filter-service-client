@@ -10,9 +10,9 @@ info:
     url: https://www.mozilla.org/en-US/MPL/
   termsOfService: https://www.ala.org.au/terms-of-use
   title: Data Quality Services API
-  version: 1.0.1-SNAPSHOT
+  version: 1.0.0-SNAPSHOT
 servers:
-- url: https://devt.ala.org.au/dataquality-filter/
+- url: https://data-quality-service.ala.org.au/
 paths:
   /api/v1/quality/getAllInverseCategoryFiltersForProfile:
     get:
@@ -32,7 +32,7 @@ paths:
                   type: string
                 type: object
           description: OK
-      summary: Get all the inverse filter strings for a given quality Profile
+      summary: Get all the inverse filter strings for a given data profile
       tags:
       - QualityServiceRPC
       x-accepts: application/json
@@ -64,7 +64,7 @@ paths:
     get:
       operationId: activeProfile
       parameters:
-      - description: Profile name
+      - description: The profile short name
         in: query
         name: profileName
         schema:
@@ -76,7 +76,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/QualityProfile'
           description: OK
-      summary: Retrieve the filter qualityProfile for a given qualityProfile name
+      summary: Retrieve the data profile for a given profile's short name.  If the
+        profile doesn't exist or the short name is omitted then the default profile
+        is returned instead.
       tags:
       - QualityServiceRPC
       x-accepts: application/json
@@ -120,7 +122,8 @@ paths:
                   type: string
                 type: object
           description: OK
-      summary: Get enabled filters, grouped by category label
+      summary: Get enabled filters, grouped by category label for a given profile
+        name
       tags:
       - QualityServiceRPC
       x-accepts: application/json
@@ -182,11 +185,11 @@ paths:
               schema:
                 type: string
           description: OK
-      summary: Get the full filter string for a given quality qualityProfile
+      summary: Get the full filter string for a given data profile
       tags:
       - QualityServiceRPC
       x-accepts: text/plain
-  /api/v1/dataprofiles/{profileId}/categories/{categoryId}/filters/{id}:
+  /api/v1/data-profiles/{profileId}/categories/{categoryId}/filters/{id}:
     get:
       operationId: filters/{id}
       parameters:
@@ -222,7 +225,7 @@ paths:
       tags:
       - filters
       x-accepts: application/json
-  /api/v1/dataprofiles/{profileId}/categories/{categoryId}/filters:
+  /api/v1/data-profiles/{profileId}/categories/{categoryId}/filters:
     get:
       operationId: filters
       parameters:
@@ -257,9 +260,9 @@ paths:
       tags:
       - filters
       x-accepts: application/json
-  /api/v1/dataprofiles/{id}:
+  /api/v1/data-profiles/{id}:
     get:
-      operationId: profiles/{id}
+      operationId: data-profiles/{id}
       parameters:
       - description: The id or short name for the quality profile or default for the
           default profile
@@ -279,11 +282,11 @@ paths:
           description: OK
       summary: Retrieve a single quality profile
       tags:
-      - profiles
+      - data-profiles
       x-accepts: application/json
-  /api/v1/dataprofiles:
+  /api/v1/data-profiles:
     get:
-      operationId: profiles
+      operationId: data-profiles
       parameters:
       - description: Maximum results to return
         in: query
@@ -302,7 +305,7 @@ paths:
           type: string
       - description: Direction to sort results by
         in: query
-        name: desc
+        name: order
         schema:
           type: string
       - description: Only return enabled profiles
@@ -331,9 +334,9 @@ paths:
           description: OK
       summary: List all quality profiles
       tags:
-      - profiles
+      - data-profiles
       x-accepts: application/json
-  /api/v1/dataprofiles/{profileId}/categories/{id}:
+  /api/v1/data-profiles/{profileId}/categories/{id}:
     get:
       operationId: categories/{id}
       parameters:
@@ -363,7 +366,7 @@ paths:
       tags:
       - categories
       x-accepts: application/json
-  /api/v1/dataprofiles/{profileId}/categories:
+  /api/v1/data-profiles/{profileId}/categories:
     get:
       operationId: categories
       parameters:

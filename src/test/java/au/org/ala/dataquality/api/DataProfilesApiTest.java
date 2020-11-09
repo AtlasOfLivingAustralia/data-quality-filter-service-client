@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for ProfilesApi
+ * API tests for DataProfilesApi
  */
-public class ProfilesApiTest {
+public class DataProfilesApiTest {
 
-    private ProfilesApi api;
+    private DataProfilesApi api;
 
     @Before
     public void setup() {
-        api = new ApiClient().createService(ProfilesApi.class);
+        api = new ApiClient().createService(DataProfilesApi.class);
     }
 
     /**
@@ -28,15 +28,15 @@ public class ProfilesApiTest {
      * 
      */
     @Test
-    public void profilesTest() {
+    public void dataProfilesTest() {
         Integer max = null;
         Integer offset = null;
         String sort = null;
-        String desc = null;
+        String order = null;
         Boolean enabled = null;
         String name = null;
         String shortName = null;
-        // List<QualityProfile> response = api.profiles(max, offset, sort, desc, enabled, name, shortName);
+        // List<QualityProfile> response = api.dataProfiles(max, offset, sort, order, enabled, name, shortName);
 
         // TODO: test validations
     }
@@ -46,9 +46,9 @@ public class ProfilesApiTest {
      * 
      */
     @Test
-    public void profilesIdTest() {
+    public void dataProfilesIdTest() {
         String id = null;
-        // List<QualityProfile> response = api.profilesId(id);
+        // List<QualityProfile> response = api.dataProfilesId(id);
 
         // TODO: test validations
     }

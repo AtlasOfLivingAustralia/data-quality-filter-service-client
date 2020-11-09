@@ -20,9 +20,9 @@ import java.util.Map;
 
 public interface QualityServiceRpcApi {
   /**
-   * Retrieve the filter qualityProfile for a given qualityProfile name
+   * Retrieve the data profile for a given profile&#39;s short name.  If the profile doesn&#39;t exist or the short name is omitted then the default profile is returned instead.
    * 
-   * @param profileName Profile name (optional)
+   * @param profileName The profile short name (optional)
    * @return Call&lt;QualityProfile&gt;
    */
   @GET("api/v1/quality/activeProfile")
@@ -42,7 +42,7 @@ public interface QualityServiceRpcApi {
   );
 
   /**
-   * Get all the inverse filter strings for a given quality Profile
+   * Get all the inverse filter strings for a given data profile
    * 
    * @param qualityProfileId Quality Profile Id (optional)
    * @return Call&lt;Map&lt;String, String&gt;&gt;
@@ -53,7 +53,7 @@ public interface QualityServiceRpcApi {
   );
 
   /**
-   * Get enabled filters, grouped by category label
+   * Get enabled filters, grouped by category label for a given profile name
    * 
    * @param profileName Profile name (optional)
    * @return Call&lt;Map&lt;String, String&gt;&gt;
@@ -97,7 +97,7 @@ public interface QualityServiceRpcApi {
   );
 
   /**
-   * Get the full filter string for a given quality qualityProfile
+   * Get the full filter string for a given data profile
    * 
    * @param profileName Profile name (optional)
    * @return Call&lt;String&gt;

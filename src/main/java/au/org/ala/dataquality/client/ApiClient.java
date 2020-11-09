@@ -76,7 +76,7 @@ public class ApiClient {
     json = new JSON();
     okBuilder = new OkHttpClient.Builder();
 
-    String baseUrl = "https://devt.ala.org.au/dataquality-filter";
+    String baseUrl = "https://data-quality-service.ala.org.au";
     if (!baseUrl.endsWith("/"))
       baseUrl = baseUrl + "/";
 

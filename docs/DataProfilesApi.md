@@ -1,17 +1,17 @@
-# ProfilesApi
+# DataProfilesApi
 
-All URIs are relative to *https://devt.ala.org.au/dataquality-filter*
+All URIs are relative to *https://data-quality-service.ala.org.au*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**profiles**](ProfilesApi.md#profiles) | **GET** api/v1/profiles | List all quality profiles
-[**profilesId**](ProfilesApi.md#profilesId) | **GET** api/v1/profiles/{id} | Retrieve a single quality profile
+[**dataProfiles**](DataProfilesApi.md#dataProfiles) | **GET** api/v1/data-profiles | List all quality profiles
+[**dataProfilesId**](DataProfilesApi.md#dataProfilesId) | **GET** api/v1/data-profiles/{id} | Retrieve a single quality profile
 
 
 
-## profiles
+## dataProfiles
 
-> List&lt;QualityProfile&gt; profiles(max, offset, sort, desc, enabled, name, shortName)
+> List&lt;QualityProfile&gt; dataProfiles(max, offset, sort, order, enabled, name, shortName)
 
 List all quality profiles
 
@@ -23,26 +23,26 @@ import au.org.ala.dataquality.client.ApiClient;
 import au.org.ala.dataquality.client.ApiException;
 import au.org.ala.dataquality.client.Configuration;
 import au.org.ala.dataquality.client.models.*;
-import au.org.ala.dataquality.api.ProfilesApi;
+import au.org.ala.dataquality.api.DataProfilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
-        ProfilesApi apiInstance = new ProfilesApi(defaultClient);
+        DataProfilesApi apiInstance = new DataProfilesApi(defaultClient);
         Integer max = 56; // Integer | Maximum results to return
         Integer offset = 56; // Integer | Offset results by
         String sort = "sort_example"; // String | Property to sort results by
-        String desc = "desc_example"; // String | Direction to sort results by
+        String order = "order_example"; // String | Direction to sort results by
         Boolean enabled = true; // Boolean | Only return enabled profiles
         String name = "name_example"; // String | Search for profiles by name
         String shortName = "shortName_example"; // String | Search for profiles by short name
         try {
-            List<QualityProfile> result = apiInstance.profiles(max, offset, sort, desc, enabled, name, shortName);
+            List<QualityProfile> result = apiInstance.dataProfiles(max, offset, sort, order, enabled, name, shortName);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ProfilesApi#profiles");
+            System.err.println("Exception when calling DataProfilesApi#dataProfiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
  **max** | **Integer**| Maximum results to return | [optional]
  **offset** | **Integer**| Offset results by | [optional]
  **sort** | **String**| Property to sort results by | [optional]
- **desc** | **String**| Direction to sort results by | [optional]
+ **order** | **String**| Direction to sort results by | [optional]
  **enabled** | **Boolean**| Only return enabled profiles | [optional]
  **name** | **String**| Search for profiles by name | [optional]
  **shortName** | **String**| Search for profiles by short name | [optional]
@@ -84,9 +84,9 @@ No authorization required
 | **200** | OK |  -  |
 
 
-## profilesId
+## dataProfilesId
 
-> List&lt;QualityProfile&gt; profilesId(id)
+> List&lt;QualityProfile&gt; dataProfilesId(id)
 
 Retrieve a single quality profile
 
@@ -98,20 +98,20 @@ import au.org.ala.dataquality.client.ApiClient;
 import au.org.ala.dataquality.client.ApiException;
 import au.org.ala.dataquality.client.Configuration;
 import au.org.ala.dataquality.client.models.*;
-import au.org.ala.dataquality.api.ProfilesApi;
+import au.org.ala.dataquality.api.DataProfilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
-        ProfilesApi apiInstance = new ProfilesApi(defaultClient);
+        DataProfilesApi apiInstance = new DataProfilesApi(defaultClient);
         String id = "id_example"; // String | The id or short name for the quality profile or default for the default profile
         try {
-            List<QualityProfile> result = apiInstance.profilesId(id);
+            List<QualityProfile> result = apiInstance.dataProfilesId(id);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ProfilesApi#profilesId");
+            System.err.println("Exception when calling DataProfilesApi#dataProfilesId");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

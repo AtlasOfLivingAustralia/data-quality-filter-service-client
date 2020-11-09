@@ -1,11 +1,11 @@
 # CategoriesApi
 
-All URIs are relative to *https://devt.ala.org.au/dataquality-filter*
+All URIs are relative to *https://data-quality-service.ala.org.au*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**categories**](CategoriesApi.md#categories) | **GET** api/v1/profiles/{profileId}/categories | List all quality categories
-[**categoriesId**](CategoriesApi.md#categoriesId) | **GET** api/v1/profiles/{profileId}/categories/{id} | Retrieve a single quality category
+[**categories**](CategoriesApi.md#categories) | **GET** api/v1/data-profiles/{profileId}/categories | List all quality categories
+[**categoriesId**](CategoriesApi.md#categoriesId) | **GET** api/v1/data-profiles/{profileId}/categories/{id} | Retrieve a single quality category
 
 
 
@@ -28,7 +28,7 @@ import au.org.ala.dataquality.api.CategoriesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
         CategoriesApi apiInstance = new CategoriesApi(defaultClient);
         String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile
@@ -93,7 +93,7 @@ import au.org.ala.dataquality.api.CategoriesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
         CategoriesApi apiInstance = new CategoriesApi(defaultClient);
         String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile

@@ -1,11 +1,11 @@
 # FiltersApi
 
-All URIs are relative to *https://devt.ala.org.au/dataquality-filter*
+All URIs are relative to *https://data-quality-service.ala.org.au*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**filters**](FiltersApi.md#filters) | **GET** api/v1/profiles/{profileId}/categories/{categoryId}/filters | List all quality filters
-[**filtersId**](FiltersApi.md#filtersId) | **GET** api/v1/profiles/{profileId}/categories/{categoryId}/filters/{id} | Retrieve a single quality filter
+[**filters**](FiltersApi.md#filters) | **GET** api/v1/data-profiles/{profileId}/categories/{categoryId}/filters | List all quality filters
+[**filtersId**](FiltersApi.md#filtersId) | **GET** api/v1/data-profiles/{profileId}/categories/{categoryId}/filters/{id} | Retrieve a single quality filter
 
 
 
@@ -28,7 +28,7 @@ import au.org.ala.dataquality.api.FiltersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
         String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile
@@ -95,7 +95,7 @@ import au.org.ala.dataquality.api.FiltersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://devt.ala.org.au/dataquality-filter");
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
         String profileId = "profileId_example"; // String | The id or short name for the quality profile or default for the default profile

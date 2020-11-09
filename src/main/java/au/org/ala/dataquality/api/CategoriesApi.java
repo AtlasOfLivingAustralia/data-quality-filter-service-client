@@ -25,7 +25,7 @@ public interface CategoriesApi {
    * @param max Maximum results to return (optional)
    * @return Call&lt;List&lt;QualityCategory&gt;&gt;
    */
-  @GET("api/v1/dataprofiles/{profileId}/categories")
+  @GET("api/v1/data-profiles/{profileId}/categories")
   Call<List<QualityCategory>> categories(
     @retrofit2.http.Path("profileId") String profileId, @retrofit2.http.Query("max") Integer max
   );
@@ -37,7 +37,7 @@ public interface CategoriesApi {
    * @param id The id for the quality category (required)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */
-  @GET("api/v1/dataprofiles/{profileId}/categories/{id}")
+  @GET("api/v1/data-profiles/{profileId}/categories/{id}")
   Call<List<QualityProfile>> categoriesId(
     @retrofit2.http.Path("profileId") String profileId, @retrofit2.http.Path("id") Integer id
   );
