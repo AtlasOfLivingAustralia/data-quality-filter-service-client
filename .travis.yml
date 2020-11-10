@@ -15,7 +15,7 @@ script:
 - ./gradlew test
 deploy:
   provider: script
-  script: travis_retry ./gradlew publish
+  script: ./gradlew publish
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^(master|develop)$
