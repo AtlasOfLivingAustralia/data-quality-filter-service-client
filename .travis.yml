@@ -17,7 +17,8 @@ deploy:
   provider: script
   script: travis_retry ./gradlew publish
   on:
-    branch: develop
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|develop)$
     java: openjdk8
 env:
   global:
