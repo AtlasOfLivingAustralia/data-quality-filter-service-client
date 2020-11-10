@@ -12,7 +12,7 @@ cache:
 before_install:
 - chmod a+x ./gradlew
 script:
-- gradle test
+- ./gradlew test
 deploy:
   provider: script
   script: travis_retry ./gradlew publish
