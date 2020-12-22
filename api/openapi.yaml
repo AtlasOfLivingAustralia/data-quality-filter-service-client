@@ -10,7 +10,7 @@ info:
     url: https://www.mozilla.org/en-US/MPL/
   termsOfService: https://www.ala.org.au/terms-of-use
   title: Data Quality Services API
-  version: 1.0.0-SNAPSHOT
+  version: 1.1.0
 servers:
 - url: https://data-quality-service.ala.org.au/
 paths:
@@ -36,52 +36,6 @@ paths:
       tags:
       - QualityServiceRPC
       x-accepts: application/json
-  /api/v1/quality/getGroupedEnabledFilters:
-    get:
-      operationId: getGroupedEnabledFilters
-      parameters:
-      - description: Profile name
-        in: query
-        name: profileName
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                additionalProperties:
-                  items:
-                    $ref: '#/components/schemas/QualityFilter'
-                  type: array
-                type: object
-          description: OK
-      summary: Get Grouped Enabled Filters
-      tags:
-      - QualityServiceRPC
-      x-accepts: application/json
-  /api/v1/quality/activeProfile:
-    get:
-      operationId: activeProfile
-      parameters:
-      - description: The profile short name
-        in: query
-        name: profileName
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/QualityProfile'
-          description: OK
-      summary: Retrieve the data profile for a given profile's short name.  If the
-        profile doesn't exist or the short name is omitted then the default profile
-        is returned instead.
-      tags:
-      - QualityServiceRPC
-      x-accepts: application/json
   /api/v1/quality/findAllEnabledCategories:
     get:
       operationId: findAllEnabledCategories
@@ -89,6 +43,12 @@ paths:
       - description: Profile name
         in: query
         name: profileName
+        schema:
+          type: string
+      - description: the userId used to get the default profile in case profile name
+          is not provided
+        in: query
+        name: userId
         schema:
           type: string
       responses:
@@ -104,6 +64,34 @@ paths:
       tags:
       - QualityServiceRPC
       x-accepts: application/json
+  /api/v1/quality/activeProfile:
+    get:
+      operationId: activeProfile
+      parameters:
+      - description: The profile short name
+        in: query
+        name: profileName
+        schema:
+          type: string
+      - description: the userId used to get active profile in case profile name is
+          not provided
+        in: query
+        name: userId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualityProfile'
+          description: OK
+      summary: Retrieve the data profile for a given profile's short name.  If the
+        profile doesn't exist or the short name is omitted then the default profile
+        is returned instead.
+      tags:
+      - QualityServiceRPC
+      x-accepts: application/json
   /api/v1/quality/getEnabledFiltersByLabel:
     get:
       operationId: getEnabledFiltersByLabel
@@ -111,6 +99,12 @@ paths:
       - description: Profile name
         in: query
         name: profileName
+        schema:
+          type: string
+      - description: the userId used to get the default profile in case profile name
+          is not provided
+        in: query
+        name: userId
         schema:
           type: string
       responses:
@@ -124,6 +118,34 @@ paths:
           description: OK
       summary: Get enabled filters, grouped by category label for a given profile
         name
+      tags:
+      - QualityServiceRPC
+      x-accepts: application/json
+  /api/v1/quality/getEnabledQualityFilters:
+    get:
+      operationId: getEnabledQualityFilters
+      parameters:
+      - description: Profile name
+        in: query
+        name: profileName
+        schema:
+          type: string
+      - description: the userId used to get the default profile in case profile name
+          is not provided
+        in: query
+        name: userId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: OK
+      summary: Get Enabled Quality Filters
       tags:
       - QualityServiceRPC
       x-accepts: application/json
@@ -147,28 +169,6 @@ paths:
       tags:
       - QualityServiceRPC
       x-accepts: text/plain
-  /api/v1/quality/getEnabledQualityFilters:
-    get:
-      operationId: getEnabledQualityFilters
-      parameters:
-      - description: Profile name
-        in: query
-        name: profileName
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  type: string
-                type: array
-          description: OK
-      summary: Get Enabled Quality Filters
-      tags:
-      - QualityServiceRPC
-      x-accepts: application/json
   /api/v1/quality/getJoinedQualityFilter:
     get:
       operationId: getJoinedQualityFilter
@@ -176,6 +176,12 @@ paths:
       - description: Profile name
         in: query
         name: profileName
+        schema:
+          type: string
+      - description: the userId used to get the default profile in case profile name
+          is not provided
+        in: query
+        name: userId
         schema:
           type: string
       responses:
@@ -189,6 +195,36 @@ paths:
       tags:
       - QualityServiceRPC
       x-accepts: text/plain
+  /api/v1/quality/getGroupedEnabledFilters:
+    get:
+      operationId: getGroupedEnabledFilters
+      parameters:
+      - description: Profile name
+        in: query
+        name: profileName
+        schema:
+          type: string
+      - description: the userId used to get the default profile in case profile name
+          is not provided
+        in: query
+        name: userId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    $ref: '#/components/schemas/QualityFilter'
+                  type: array
+                type: object
+          description: OK
+      summary: Get Grouped Enabled Filters
+      tags:
+      - QualityServiceRPC
+      x-accepts: application/json
   /api/v1/data-profiles/{profileId}/categories/{categoryId}/filters/{id}:
     get:
       operationId: filters/{id}
@@ -323,6 +359,11 @@ paths:
         name: shortName
         schema:
           type: string
+      - description: the userId used to search private profiles
+        in: query
+        name: userId
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -399,6 +440,23 @@ components:
   schemas:
     QualityCategory:
       example:
+        qualityProfile:
+          contactEmail: contactEmail
+          contactName: contactName
+          displayOrder: 5
+          description: description
+          userId: userId
+          enabled: true
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          isDefault: true
+          dateCreated: 2000-01-23T04:56:07.000+00:00
+          name: name
+          isPublic: true
+          id: 1
+          categories:
+          - null
+          - null
+          shortName: shortName
         qualityFilters:
         - filter: filter
           qualityCategoryId: '{}'
@@ -420,9 +478,9 @@ components:
         dateCreated: 2000-01-23T04:56:07.000+00:00
         qualityProfileId: '{}'
         name: name
-        displayOrder: 5
+        displayOrder: 6
         description: description
-        id: 1
+        id: 0
         label: label
         enabled: true
       properties:
@@ -494,70 +552,22 @@ components:
       type: object
     QualityProfile:
       example:
+        contactEmail: contactEmail
+        contactName: contactName
+        displayOrder: 5
+        description: description
+        userId: userId
+        enabled: true
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         isDefault: true
         dateCreated: 2000-01-23T04:56:07.000+00:00
-        contactEmail: contactEmail
-        contactName: contactName
         name: name
-        displayOrder: 6
-        description: description
-        id: 0
+        isPublic: true
+        id: 1
         categories:
-        - qualityFilters:
-          - filter: filter
-            qualityCategoryId: '{}'
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            dateCreated: 2000-01-23T04:56:07.000+00:00
-            displayOrder: 2
-            description: description
-            id: 5
-            enabled: true
-          - filter: filter
-            qualityCategoryId: '{}'
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            dateCreated: 2000-01-23T04:56:07.000+00:00
-            displayOrder: 2
-            description: description
-            id: 5
-            enabled: true
-          lastUpdated: 2000-01-23T04:56:07.000+00:00
-          dateCreated: 2000-01-23T04:56:07.000+00:00
-          qualityProfileId: '{}'
-          name: name
-          displayOrder: 5
-          description: description
-          id: 1
-          label: label
-          enabled: true
-        - qualityFilters:
-          - filter: filter
-            qualityCategoryId: '{}'
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            dateCreated: 2000-01-23T04:56:07.000+00:00
-            displayOrder: 2
-            description: description
-            id: 5
-            enabled: true
-          - filter: filter
-            qualityCategoryId: '{}'
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            dateCreated: 2000-01-23T04:56:07.000+00:00
-            displayOrder: 2
-            description: description
-            id: 5
-            enabled: true
-          lastUpdated: 2000-01-23T04:56:07.000+00:00
-          dateCreated: 2000-01-23T04:56:07.000+00:00
-          qualityProfileId: '{}'
-          name: name
-          displayOrder: 5
-          description: description
-          id: 1
-          label: label
-          enabled: true
+        - null
+        - null
         shortName: shortName
-        enabled: true
       properties:
         id:
           format: int64
@@ -572,6 +582,10 @@ components:
           type: string
         contactEmail:
           type: string
+        userId:
+          type: string
+        isPublic:
+          type: boolean
         enabled:
           type: boolean
         isDefault:

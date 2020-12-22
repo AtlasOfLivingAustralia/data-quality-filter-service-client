@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **contactName** | **String** |  |  [optional]
 **contactEmail** | **String** |  |  [optional]
+**userId** | **String** |  |  [optional]
+**isPublic** | **Boolean** |  |  [optional]
 **enabled** | **Boolean** |  |  [optional]
 **isDefault** | **Boolean** |  |  [optional]
 **displayOrder** | **Long** |  |  [optional]

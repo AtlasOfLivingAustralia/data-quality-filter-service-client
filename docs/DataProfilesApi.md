@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## dataProfiles
 
-> List&lt;QualityProfile&gt; dataProfiles(max, offset, sort, order, enabled, name, shortName)
+> List&lt;QualityProfile&gt; dataProfiles(max, offset, sort, order, enabled, name, shortName, userId)
 
 List all quality profiles
 
@@ -38,8 +38,9 @@ public class Example {
         Boolean enabled = true; // Boolean | Only return enabled profiles
         String name = "name_example"; // String | Search for profiles by name
         String shortName = "shortName_example"; // String | Search for profiles by short name
+        String userId = "userId_example"; // String | the userId used to search private profiles
         try {
-            List<QualityProfile> result = apiInstance.dataProfiles(max, offset, sort, order, enabled, name, shortName);
+            List<QualityProfile> result = apiInstance.dataProfiles(max, offset, sort, order, enabled, name, shortName, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DataProfilesApi#dataProfiles");
@@ -64,6 +65,7 @@ Name | Type | Description  | Notes
  **enabled** | **Boolean**| Only return enabled profiles | [optional]
  **name** | **String**| Search for profiles by name | [optional]
  **shortName** | **String**| Search for profiles by short name | [optional]
+ **userId** | **String**| the userId used to search private profiles | [optional]
 
 ### Return type
 

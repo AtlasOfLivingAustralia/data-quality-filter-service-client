@@ -27,11 +27,12 @@ public interface DataProfilesApi {
    * @param enabled Only return enabled profiles (optional)
    * @param name Search for profiles by name (optional)
    * @param shortName Search for profiles by short name (optional)
+   * @param userId the userId used to search private profiles (optional)
    * @return Call&lt;List&lt;QualityProfile&gt;&gt;
    */
   @GET("api/v1/data-profiles")
   Call<List<QualityProfile>> dataProfiles(
-    @retrofit2.http.Query("max") Integer max, @retrofit2.http.Query("offset") Integer offset, @retrofit2.http.Query("sort") String sort, @retrofit2.http.Query("order") String order, @retrofit2.http.Query("enabled") Boolean enabled, @retrofit2.http.Query("name") String name, @retrofit2.http.Query("shortName") String shortName
+    @retrofit2.http.Query("max") Integer max, @retrofit2.http.Query("offset") Integer offset, @retrofit2.http.Query("sort") String sort, @retrofit2.http.Query("order") String order, @retrofit2.http.Query("enabled") Boolean enabled, @retrofit2.http.Query("name") String name, @retrofit2.http.Query("shortName") String shortName, @retrofit2.http.Query("userId") String userId
   );
 
   /**
