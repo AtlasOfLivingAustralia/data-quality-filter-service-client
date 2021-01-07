@@ -88,7 +88,7 @@ No authorization required
 
 ## dataProfilesId
 
-> List&lt;QualityProfile&gt; dataProfilesId(id)
+> QualityProfile dataProfilesId(id)
 
 Retrieve a single quality profile
 
@@ -108,9 +108,9 @@ public class Example {
         defaultClient.setBasePath("https://data-quality-service.ala.org.au");
 
         DataProfilesApi apiInstance = new DataProfilesApi(defaultClient);
-        String id = "id_example"; // String | The id or short name for the quality profile or default for the default profile
+        String id = "id_example"; // String | The id or short name for the quality profile
         try {
-            List<QualityProfile> result = apiInstance.dataProfilesId(id);
+            QualityProfile result = apiInstance.dataProfilesId(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DataProfilesApi#dataProfilesId");
@@ -128,11 +128,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id or short name for the quality profile or default for the default profile |
+ **id** | **String**| The id or short name for the quality profile |
 
 ### Return type
 
-[**List&lt;QualityProfile&gt;**](QualityProfile.md)
+[**QualityProfile**](QualityProfile.md)
 
 ### Authorization
 
