@@ -4,9 +4,10 @@ All URIs are relative to *https://data-quality-service.ala.org.au*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**activeProfile**](QualityServiceRpcApi.md#activeProfile) | **GET** api/v1/quality/activeProfile | <ul><li>profileName will be processed first so if profileName provided the function tries to find the profile with that name. </li><li>Otherwise if userId is provided, it tries to find the enabled private profile of that user. </li><li>If none of them provided or no profile found (specified name or specified userId), default public profile will be returned. </li></ul> 
+[**activeProfile**](QualityServiceRpcApi.md#activeProfile) | **GET** api/v1/quality/activeProfile | Retrieve the data profile for a given profile&#39;s short name. If the profile doesn&#39;t exist or the short name is omitted then get the default profile of the specified user.                      If no profile found or no userId specified, return the default public profile
 [**findAllEnabledCategories**](QualityServiceRpcApi.md#findAllEnabledCategories) | **GET** api/v1/quality/findAllEnabledCategories | Find All Enabled Categories
 [**getAllInverseCategoryFiltersForProfile**](QualityServiceRpcApi.md#getAllInverseCategoryFiltersForProfile) | **GET** api/v1/quality/getAllInverseCategoryFiltersForProfile | Get all the inverse filter strings for a given data profile
+[**getDefaultProfile**](QualityServiceRpcApi.md#getDefaultProfile) | **GET** api/v1/quality/getDefaultProfile | Retrieve the default data profile. If the userId is provided, return the default profile for the user. Otherwise return the default public profile
 [**getEnabledFiltersByLabel**](QualityServiceRpcApi.md#getEnabledFiltersByLabel) | **GET** api/v1/quality/getEnabledFiltersByLabel | Get enabled filters, grouped by category label for a given profile name
 [**getEnabledQualityFilters**](QualityServiceRpcApi.md#getEnabledQualityFilters) | **GET** api/v1/quality/getEnabledQualityFilters | Get Enabled Quality Filters
 [**getGroupedEnabledFilters**](QualityServiceRpcApi.md#getGroupedEnabledFilters) | **GET** api/v1/quality/getGroupedEnabledFilters | Get Grouped Enabled Filters
@@ -19,7 +20,7 @@ Method | HTTP request | Description
 
 > QualityProfile activeProfile(profileName, userId)
 
-Retrieve the data profile for a given profile&#39;s short name.  If the profile doesn&#39;t exist or the short name is omitted then the default profile is returned instead.
+Retrieve the data profile for a given profile&#39;s short name. If the profile doesn&#39;t exist or the short name is omitted then get the default profile of the specified user.                      If no profile found or no userId specified, return the default public profile
 
 ### Example
 
@@ -82,7 +83,7 @@ No authorization required
 
 ## findAllEnabledCategories
 
-> List&lt;QualityCategory&gt; findAllEnabledCategories(profileName, userId)
+> List&lt;QualityCategory&gt; findAllEnabledCategories(profileName)
 
 Find All Enabled Categories
 
@@ -103,9 +104,8 @@ public class Example {
 
         QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
         String profileName = "profileName_example"; // String | Profile name
-        String userId = "userId_example"; // String | the userId used to get the default profile in case profile name is not provided
         try {
-            List<QualityCategory> result = apiInstance.findAllEnabledCategories(profileName, userId);
+            List<QualityCategory> result = apiInstance.findAllEnabledCategories(profileName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QualityServiceRpcApi#findAllEnabledCategories");
@@ -124,7 +124,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileName** | **String**| Profile name | [optional]
- **userId** | **String**| the userId used to get the default profile in case profile name is not provided | [optional]
 
 ### Return type
 
@@ -208,9 +207,72 @@ No authorization required
 | **200** | OK |  -  |
 
 
+## getDefaultProfile
+
+> QualityProfile getDefaultProfile(userId)
+
+Retrieve the default data profile. If the userId is provided, return the default profile for the user. Otherwise return the default public profile
+
+### Example
+
+```java
+// Import classes:
+import au.org.ala.dataquality.client.ApiClient;
+import au.org.ala.dataquality.client.ApiException;
+import au.org.ala.dataquality.client.Configuration;
+import au.org.ala.dataquality.client.models.*;
+import au.org.ala.dataquality.api.QualityServiceRpcApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://data-quality-service.ala.org.au");
+
+        QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
+        String userId = "userId_example"; // String | The userId used to retrieve the default profile
+        try {
+            QualityProfile result = apiInstance.getDefaultProfile(userId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling QualityServiceRpcApi#getDefaultProfile");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The userId used to retrieve the default profile | [optional]
+
+### Return type
+
+[**QualityProfile**](QualityProfile.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+
 ## getEnabledFiltersByLabel
 
-> Map&lt;String, String&gt; getEnabledFiltersByLabel(profileName, userId)
+> Map&lt;String, String&gt; getEnabledFiltersByLabel(profileName)
 
 Get enabled filters, grouped by category label for a given profile name
 
@@ -231,9 +293,8 @@ public class Example {
 
         QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
         String profileName = "profileName_example"; // String | Profile name
-        String userId = "userId_example"; // String | the userId used to get the default profile in case profile name is not provided
         try {
-            Map<String, String> result = apiInstance.getEnabledFiltersByLabel(profileName, userId);
+            Map<String, String> result = apiInstance.getEnabledFiltersByLabel(profileName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QualityServiceRpcApi#getEnabledFiltersByLabel");
@@ -252,7 +313,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileName** | **String**| Profile name | [optional]
- **userId** | **String**| the userId used to get the default profile in case profile name is not provided | [optional]
 
 ### Return type
 
@@ -275,7 +335,7 @@ No authorization required
 
 ## getEnabledQualityFilters
 
-> List&lt;String&gt; getEnabledQualityFilters(profileName, userId)
+> List&lt;String&gt; getEnabledQualityFilters(profileName)
 
 Get Enabled Quality Filters
 
@@ -296,9 +356,8 @@ public class Example {
 
         QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
         String profileName = "profileName_example"; // String | Profile name
-        String userId = "userId_example"; // String | the userId used to get the default profile in case profile name is not provided
         try {
-            List<String> result = apiInstance.getEnabledQualityFilters(profileName, userId);
+            List<String> result = apiInstance.getEnabledQualityFilters(profileName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QualityServiceRpcApi#getEnabledQualityFilters");
@@ -317,7 +376,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileName** | **String**| Profile name | [optional]
- **userId** | **String**| the userId used to get the default profile in case profile name is not provided | [optional]
 
 ### Return type
 
@@ -340,7 +398,7 @@ No authorization required
 
 ## getGroupedEnabledFilters
 
-> Map&lt;String, List&lt;QualityFilter&gt;&gt; getGroupedEnabledFilters(profileName, userId)
+> Map&lt;String, List&lt;QualityFilter&gt;&gt; getGroupedEnabledFilters(profileName)
 
 Get Grouped Enabled Filters
 
@@ -361,9 +419,8 @@ public class Example {
 
         QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
         String profileName = "profileName_example"; // String | Profile name
-        String userId = "userId_example"; // String | the userId used to get the default profile in case profile name is not provided
         try {
-            Map<String, List<QualityFilter>> result = apiInstance.getGroupedEnabledFilters(profileName, userId);
+            Map<String, List<QualityFilter>> result = apiInstance.getGroupedEnabledFilters(profileName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QualityServiceRpcApi#getGroupedEnabledFilters");
@@ -382,7 +439,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileName** | **String**| Profile name | [optional]
- **userId** | **String**| the userId used to get the default profile in case profile name is not provided | [optional]
 
 ### Return type
 
@@ -468,7 +524,7 @@ No authorization required
 
 ## getJoinedQualityFilter
 
-> String getJoinedQualityFilter(profileName, userId)
+> String getJoinedQualityFilter(profileName)
 
 Get the full filter string for a given data profile
 
@@ -489,9 +545,8 @@ public class Example {
 
         QualityServiceRpcApi apiInstance = new QualityServiceRpcApi(defaultClient);
         String profileName = "profileName_example"; // String | Profile name
-        String userId = "userId_example"; // String | the userId used to get the default profile in case profile name is not provided
         try {
-            String result = apiInstance.getJoinedQualityFilter(profileName, userId);
+            String result = apiInstance.getJoinedQualityFilter(profileName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QualityServiceRpcApi#getJoinedQualityFilter");
@@ -510,7 +565,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileName** | **String**| Profile name | [optional]
- **userId** | **String**| the userId used to get the default profile in case profile name is not provided | [optional]
 
 ### Return type
 
